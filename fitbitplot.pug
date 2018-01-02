@@ -1,0 +1,62 @@
+html
+	head
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js')
+	body
+		//for date in dates
+			//h6= date
+		- var newdate = [];
+		for date in dates
+			- console.log('*****'+date);
+			- date = String(date)
+			- var res = date.split(" ");
+			- console.log(res.length);
+			- var formattedstring = res[0].concat("_").concat(res[1]).concat("_").concat(res[2]).concat("_").concat(res[3]);
+			- console.log(formattedstring);
+			- newdate.push(formattedstring);
+		div(style='width: 60%;')
+			canvas#mychart(height='100', width='100')
+		input(type='hidden',id='steps',name='steps',value=steps)
+		input(type='hidden',id='dates',name='dates',value=newdate)
+		input.btn.btn-primary(type='button', value='Go back!', onclick='history.back()')
+		for neww in newdate
+			- console.log(neww);
+
+		script.
+			window.onload = function( ) {
+				console.log('line 13');
+				var steps = JSON.parse(document.getElementById("steps").value);
+				var dates = JSON.parse(document.getElementById("dates").value);
+				console.log(dates.length);
+				console.log(steps.length);
+				console.log(dates);
+				var ctx = document.getElementById("mychart").getContext('2d');
+				var options = {
+					type: 'line',
+					data: {
+						labels: dates,
+						datasets: [{
+							label: '# of Steps',
+							data: steps,
+							fill: false,
+							linetension: 0.5,
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)'
+							],
+							borderColor: [
+								'rgba(255,99,132,1)'
+							],
+							borderWidth: 0
+						}]
+					},
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero:true
+								}
+							}]
+						}
+					}
+				}
+				var myChart = new Chart(ctx, options);
+				}
