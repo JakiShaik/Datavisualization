@@ -1,0 +1,49 @@
+html
+body
+    script(src="https://d3js.org/d3.v4.min.js")
+    script.
+        var holder = d3.select("body")
+            .append("svg")
+            .attr("width",450)
+            .attr("height",250);
+        holder.append("circle")
+            .attr("cx",200)
+            .attr("cy",100)
+            .attr("r",50)
+        holder.append("ellipse")
+            .attr("cx", 300)
+            .attr("cy", 200)
+            .attr("rx", 100)
+            .attr("ry", 50);
+        holder.append("circle")
+            .attr("cx",400)
+            .attr("cy",100)
+            .attr("r",50)
+        holder.append("rect")
+            .style("fill","none")
+            .attr("x",100)
+            .attr("y",50)
+            .attr("height",100)
+            .attr("width",200);
+            
+        holder.append("polyline")
+            .style("stroke","black")
+            .style("fill","none")
+            .attr("points", "150,50,150,250,450,250");
+        holder.append("polyline")
+            .style("stroke","black")
+            .style("fill","none")
+            .attr("points", "450,250,450,50,150,50");
+        holder.append("path")
+            .style("stroke", "white")
+            .style("fill","white")
+            .attr("d","M 275,175,L 300,225, L 325,175 Z");
+        holder.append("path")
+            .style("stroke", "white")
+            .style("fill","white")
+            .attr("d", "M 195,95,L 200,105, L 205,95 Z")
+        holder.append("path")
+            .style("stroke", "white")
+            .style("fill", "white")
+            .attr("d", "M 395,95, L 400,105, L 405,95 Z");
+
