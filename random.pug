@@ -1,0 +1,50 @@
+doctype html
+html
+  meta(charset='utf-8')
+  head
+    meta(name='description', content='D3.js v4, transition, color, location')
+  body
+    script(src='http://d3js.org/d3.v4.min.js')
+    // .attrs()
+    script(src='https://d3js.org/d3-selection-multi.v1.min.js')
+    script.
+      var colorRange = ['green', 'orange', 'red', 'blue', 'black', 'pink', 'yellow'];
+      function randomColor() {
+            return colorRange[Math.floor(Math.random() * colorRange.length)];
+        }
+      var svg = d3.select('body')
+      .append('svg')
+      .attrs({ width: 500, height: 200 });
+      svg.append('rect')
+      .attrs({ x: 10, y: 10, width: 80, height: 80, fill: randomColor })
+      .transition()
+      .duration(5000)
+      .attrs({ x: 460, y: 150, width: 40, height: 40, fill: randomColor });
+      
+      svg.append('circle')
+      .attrs({cx: 460, cy: 150, r: 40, fill: randomColor})
+      .transition()
+      .duration(5000)
+      .attrs({cx: 20, cy:20, r: 10, fill: randomColor});
+      svg.append('circle')
+      .attrs({cx: 20, cy:150, r: 40, fill: randomColor})
+      .transition()
+      .duration(5000)
+      .attrs({cx: 460, cy: 20, r: 10, fill: randomColor});
+      svg.append('rect')
+      .attrs({x: 460, y: 20, width: 80, height: 80, fill: randomColor })
+      .transition()
+      .duration(5000)
+      .attrs({ x: 20, y: 150, width: 40, height: 40, fill: randomColor });
+      
+
+
+      for(var i =0;i<500;i++) {
+        holder.append("rect")
+            .style("fill",randomColor)
+            .attr("x",i)
+            .attr("y",i)
+            .attr("height",40)
+            .attr("width",40);
+        }
+            
