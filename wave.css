@@ -1,0 +1,32 @@
+.grid {
+    stroke-dasharray: 3,1;
+  }
+  
+  .line-content {
+    fill: none;
+    stroke: steelblue;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 2.5px;
+  }
+  
+  .data-point {
+    fill: none;
+    opacity: 0.6;
+    stroke: rgba(211,84,0,0.7);
+    stroke-width: 1.5;
+  }
+  
+  .tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    font-weight: bolder;
+    background: LightSalmon;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    }
